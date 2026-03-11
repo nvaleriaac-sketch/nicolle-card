@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Nicolle - LinkedIn Card</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #111827;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+  }
+
+  .card {
+    width: 700px;
+    background: #0A0F1E;
+    border-radius: 20px;
+    border: 1px solid rgba(59,130,246,0.2);
+    padding: 40px 44px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .bg-glow {
+    position: absolute;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(59,130,246,0.12) 0%, transparent 70%);
+    top: -150px; right: -150px;
+    pointer-events: none;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: rgba(59,130,246,0.12);
+    border: 1px solid rgba(59,130,246,0.35);
+    border-radius: 100px;
+    padding: 5px 14px;
+    margin-bottom: 18px;
+  }
+  .dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: #3B82F6;
+    animation: blink 2s infinite;
+  }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+  .badge span { font-size: 11px; font-weight: 700; color: #3B82F6; letter-spacing: 0.08em; text-transform: uppercase; }
+
+  .name {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1;
+    letter-spacing: -1px;
+    margin-bottom: 6px;
+  }
+  .name em { color: #3B82F6; font-style: normal; }
+  .subtitle { font-size: 13px; color: #94A3B8; margin-bottom: 4px; }
+  .location { font-size: 12px; color: #4B5563; margin-bottom: 18px; }
+
+  .divider {
+    width: 48px; height: 3px;
+    background: linear-gradient(to right, #3B82F6, #6366F1);
+    border-radius: 2px;
+    margin-bottom: 22px;
+  }
+
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-bottom: 20px; }
+
+  .label {
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #3B82F6;
+    margin-bottom: 12px;
+  }
+
+  .tags { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 18px; }
+  .tag {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 6px;
+    padding: 5px 11px;
+    font-size: 11px;
+    font-weight: 500;
+    color: #CBD5E1;
+  }
+  .tag.h {
+    background: rgba(59,130,246,0.12);
+    border-color: rgba(59,130,246,0.3);
+    color: #93C5FD;
+  }
+
+  .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .stat {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 10px;
+    padding: 14px;
+  }
+  .stat-n {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px; font-weight: 700;
+    color: #3B82F6; line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-l { font-size: 10px; color: #64748B; font-weight: 500; line-height: 1.3; }
+
+  .avail {
+    background: linear-gradient(135deg, rgba(59,130,246,0.15), rgba(99,102,241,0.12));
+    border: 1px solid rgba(59,130,246,0.25);
+    border-radius: 12px;
+    padding: 16px 18px;
+    margin-bottom: 16px;
+  }
+  .avail-title { font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 10px; }
+  .avail-row { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+  .avail-row span { font-size: 12px; color: #94A3B8; }
+
+  .companies { display: flex; flex-wrap: wrap; gap: 8px; }
+  .co {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 6px;
+    padding: 5px 12px;
+    font-size: 11px; color: #94A3B8; font-weight: 500;
+  }
+
+  .footer {
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding-top: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 4px;
+  }
+  .footer-text { font-size: 11px; color: #4B5563; line-height: 1.6; }
+  .footer-text strong { color: #64748B; }
+  .btn {
+    background: linear-gradient(135deg, #3B82F6, #6366F1);
+    border-radius: 100px;
+    padding: 9px 20px;
+    font-size: 11px; font-weight: 700; color: #fff;
+    white-space: nowrap;
+  }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="bg-glow"></div>
+
+  <div class="badge"><div class="dot"></div><span>Open to Work · Remote & Hybrid</span></div>
+
+  <div class="name">Nicolle <em>Valeria</em></div>
+  <div class="subtitle">Marketing · Content Creation · Customer Support · Admin Assistant</div>
+  <div class="location">📍 San José, Costa Rica &nbsp;·&nbsp; Monday to Friday</div>
+  <div class="divider"></div>
+
+  <div class="grid">
+    <div>
+      <div class="label">Core Skills</div>
+      <div class="tags">
+        <span class="tag h">Meta Ads & Media Buying</span>
+        <span class="tag h">Social Media Marketing</span>
+        <span class="tag h">Content Creation</span>
+        <span class="tag h">Canva & Design</span>
+        <span class="tag h">CapCut Video Editing</span>
+        <span class="tag">Notion</span>
+        <span class="tag">Microsoft 365</span>
+        <span class="tag">Admin Assistant</span>
+        <span class="tag">EHR / EMR Systems</span>
+        <span class="tag">Customer Support</span>
+        <span class="tag">CRM Management</span>
+        <span class="tag">HIPAA Compliance</span>
+        <span class="tag">Finance & Credit</span>
+        <span class="tag">Billing Support</span>
+        <span class="tag">Inbound Calls</span>
+        <span class="tag">Outbound Calls</span>
+        <span class="tag">Email Support</span>
+        <span class="tag">Chat Support</span>
+        <span class="tag">Back Office</span>
+      </div>
+
+      <div class="label">Experience</div>
+      <div class="stats">
+        <div class="stat"><div class="stat-n">4+</div><div class="stat-l">Years Customer Support</div></div>
+        <div class="stat"><div class="stat-n">2+</div><div class="stat-l">Years US Healthcare</div></div>
+        <div class="stat"><div class="stat-n">+6</div><div class="stat-l">Companies worked with</div></div>
+        <div class="stat"><div class="stat-n">Advanced</div><div class="stat-l">English Proficiency</div></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="label">Availability</div>
+      <div class="avail">
+        <div class="avail-title">✅ Available Now</div>
+        <div class="avail-row"><span>🌐</span><span>Fully Remote or Hybrid</span></div>
+        <div class="avail-row"><span>📅</span><span>Monday to Friday</span></div>
+        <div class="avail-row"><span>💼</span><span>Full-time or Part-time</span></div>
+        <div class="avail-row"><span>🌎</span><span>US-based companies welcome</span></div>
+      </div>
+
+      <div class="label">Previously At</div>
+      <div class="companies">
+        <span class="co">Experian</span>
+        <span class="co">Health Prime</span>
+        <span class="co">Concentrix</span>
+        <span class="co">CiNKO</span>
+      </div>
+    </div>
+  </div>
+
+    <div class="footer">
+    <div class="footer-text">
+      Recruiters &amp; companies — feel free to reach out!<br>
+      <strong>nvaleriaac@gmail.com &nbsp;·&nbsp; (506) 8445-6933</strong>
+    </div>
+    <div class="btn">💬 Let's Connect</div>
+  </div>
+
+</div>
+</body>
+</html>
